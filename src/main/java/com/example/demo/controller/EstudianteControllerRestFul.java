@@ -29,7 +29,7 @@ public class EstudianteControllerRestFul {
 	@Autowired
 	private IEstudianteService estudianteService;
 
-	// http://localhost:8088/API/v1.0/Inscripcion/estudiantes/{id} GET
+	// http://localhost:8089/API/v1.0/Inscripcion/estudiantes/{id} GET
 	@GetMapping(path = "/{id}", produces = "application/json")
 	public ResponseEntity<EstudianteTO> consultar(@PathVariable Integer id) {
 		EstudianteTO estu = this.estudianteService.buscarTO(id);
@@ -38,14 +38,14 @@ public class EstudianteControllerRestFul {
 		return ResponseEntity.status(HttpStatus.OK).body(estu);
 	}
 
-	// http://localhost:8088/API/v1.0/Inscripcion/estudiantes GET
+	// http://localhost:8089/API/v1.0/Inscripcion/estudiantes GET
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<EstudianteTO>> consultarTodosHATEOAS() {
 		List<EstudianteTO> lista = this.estudianteService.buscarTodosTO();
 		return ResponseEntity.status(HttpStatus.OK).body(lista);
 	}
 
-	// http://localhost:8088/API/v1.0/Inscripcion/estudiantes POST
+	// http://localhost:8089/API/v1.0/Inscripcion/estudiantes POST
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void guardar(@RequestBody EstudianteTO estudianteTO) {
 		this.estudianteService.guardar(estudianteTO);
